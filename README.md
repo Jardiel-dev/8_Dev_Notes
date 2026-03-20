@@ -2,7 +2,7 @@
 
 Aplicação web simples para criação e gerenciamento de notas diretamente no navegador.
 
-Link: 
+Link: https://jardiel-dev.github.io/8_Dev_Notes/
 
 ## 🚀 Funcionalidades
 
