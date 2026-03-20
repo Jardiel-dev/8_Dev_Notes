@@ -1,0 +1,204 @@
+/* ============================
+   RESET / CONFIGURAÇÕES GERAIS
+============================ */
+
+/* Remove espaçamentos padrão e define box model padrão */
+* {
+  margin: 0; /* Remove margens padrão do navegador */
+  padding: 0; /* Remove espaçamentos internos padrão */
+  box-sizing: border-box; /* Inclui padding e border no cálculo do tamanho */
+  font-family: Helvetica; /* Define fonte padrão da aplicação */
+}
+
+/* Estilo global do body */
+body {
+  background-color: #202124; /* Fundo escuro (tema dark) */
+}
+
+
+/* ============================
+   HEADER (CABEÇALHO)
+============================ */
+
+header {
+  border-bottom: 1px solid #ccc; /* Linha inferior para separar do conteúdo */
+  padding: 1rem 2rem; /* Espaçamento interno */
+  color: #fff; /* Cor do texto */
+  display: flex; /* Layout flexível */
+  align-items: center; /* Alinha verticalmente */
+  justify-content: space-around; /* Distribui os elementos */
+}
+
+/* Container da busca */
+#search-container {
+  display: flex; /* Elementos em linha */
+  align-items: center; /* Centraliza verticalmente */
+  gap: 1rem; /* Espaço entre ícone e input */
+}
+
+/* Campo de busca */
+#search-input {
+  background-color: #525356; /* Fundo do input */
+  border-radius: 5px; /* Bordas arredondadas */
+  border: none; /* Remove borda padrão */
+  padding: 10px; /* Espaçamento interno */
+  font-weight: bold; /* Texto mais forte */
+  color: #ddd; /* Cor do texto */
+  width: 400px; /* Largura fixa */
+}
+
+
+#search-input::placeholder {
+  color: #ddd;
+  
+}
+
+/* Botão de exportar */
+#export-notes {
+  background-color: #333; /* Fundo escuro */
+  border: 2px solid #fff; /* Borda branca */
+  border-radius: 4px; /* Bordas arredondadas */
+  color: #fff; /* Texto branco */
+  padding: 5px 15px; /* Espaçamento interno */
+  cursor: pointer; /* Cursor de clique */
+  transition: 0.4s; /* Animação suave */
+}
+
+/* Efeito hover do botão */
+#export-notes:hover {
+  background-color: #fff; /* Inverte cores */
+  color: #333;
+}
+
+
+/* ============================
+   FORMULÁRIO DE NOVA NOTA
+============================ */
+
+#add-note-container {
+  display: flex; /* Layout horizontal */
+  width: 400px; /* Largura fixa */
+  margin: 1rem auto 0; /* Centraliza horizontalmente */
+  gap: 1rem; /* Espaço entre input e botão */
+}
+
+/* Input e botão compartilham estilos */
+#add-note-container input,
+#add-note-container button {
+  padding: 10px; /* Espaçamento interno */
+  border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Input da nova nota */
+#add-note-container input {
+  flex: 1; /* Ocupa todo espaço disponível */
+  background-color: transparent; /* Fundo transparente */
+  border: 1px solid #525356; /* Borda sutil */
+  color: #fff; /* Texto branco */
+}
+
+/* Botão de adicionar nota */
+#add-note-container button {
+  cursor: pointer; /* Cursor de clique */
+  background-color: #333; /* Fundo escuro */
+  color: #fff; /* Texto branco */
+}
+
+
+/* ============================
+   GRID DE NOTAS
+============================ */
+
+#notes-container {
+  display: grid; /* Layout em grid */
+  grid-template-columns: repeat(auto-fill, 250px);
+  /* Cria colunas automáticas de 250px */
+
+  padding: 2rem; /* Espaçamento interno */
+  gap: 2rem; /* Espaço entre notas */
+}
+
+
+/* ============================
+   CARD DA NOTA
+============================ */
+
+.note {
+  min-height: 200px; /* Altura mínima */
+  padding: 1rem; /* Espaçamento interno */
+  border: 1px solid #ccc; /* Borda */
+  background-color: #202124; /* Fundo escuro */
+  border-radius: 10px; /* Bordas arredondadas */
+  color: #fff; /* Texto branco */
+  position: relative; /* Permite posicionamento absoluto interno */
+}
+
+/* Área de texto da nota */
+.note textarea {
+  background-color: transparent; /* Fundo transparente */
+  resize: none; /* Remove redimensionamento */
+  color: #fff; /* Texto branco */
+  border: none; /* Remove borda */
+  height: 100%; /* Ocupa toda altura */
+  outline: none; /* Remove borda ao focar */
+}
+
+
+/* ============================
+   ÍCONE DE FIXAR (PIN)
+============================ */
+
+.note .bi-pin {
+  position: absolute; /* Posicionamento dentro da nota */
+  left: 10px;
+  bottom: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color: #333;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+
+/* ============================
+   AÇÕES (EXCLUIR / DUPLICAR)
+============================ */
+
+/* Mostra ícones ao passar o mouse */
+.note:hover > i {
+  opacity: 1;
+}
+
+/* Ícones de deletar e duplicar */
+.note .bi-x-lg,
+.note .bi-file-earmark-plus {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 5px;
+  color: #555; /* Cor inicial */
+  opacity: 0; /* Invisível inicialmente */
+  transition: 0.3s; /* Animação */
+}
+
+/* Ícone de duplicar fica abaixo */
+.note .bi-file-earmark-plus {
+  top: 40px;
+}
+
+/* Hover nos ícones */
+.note .bi-x-lg:hover,
+.note .bi-file-earmark-plus:hover {
+  color: #fff; /* Destaque ao passar mouse */
+}
+
+
+/* ============================
+   ESTADO: NOTA FIXADA
+============================ */
+
+.note.fixed {
+  background-color: #3c3c3f; /* Cor diferente para destacar */
+}

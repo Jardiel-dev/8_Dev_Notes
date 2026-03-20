@@ -1,0 +1,86 @@
+<!-- Define o tipo do documento como HTML5 -->
+<!DOCTYPE html>
+
+<!-- Elemento raiz da página | lang="en" indica o idioma (inglês) -->
+<html lang="en">
+  <head>
+    
+    <!-- Define a codificação de caracteres (UTF-8 suporta acentos, emojis, etc.) -->
+    <meta charset="UTF-8" />
+
+    <!-- Garante compatibilidade com versões antigas do Internet Explorer -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Responsividade: faz o layout se adaptar a dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Título da página (aparece na aba do navegador) -->
+    <title>Notes</title>
+
+    <!-- Importação de ícones do Bootstrap Icons via CDN -->
+    <!-- Permite usar ícones com classes como: bi bi-search -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css"
+    />
+
+    <!-- Importação do arquivo CSS principal -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Importação do JavaScript -->
+    <!-- 'defer' garante que o script só será executado após o HTML carregar -->
+    <script src="js/script.js" defer></script>
+  </head>
+
+  <body>
+    
+    <!-- Cabeçalho da aplicação -->
+    <header>
+
+      <!-- Título principal da aplicação -->
+      <h1>DevNotes</h1>
+
+      <!-- Container da barra de busca -->
+      <div id="search-container">
+
+        <!-- Ícone de lupa (busca) -->
+        <i class="bi bi-search"></i>
+
+        <!-- Campo de input para pesquisar notas -->
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Busque por uma nota..."
+        />
+      </div>
+
+      <!-- Botão para exportar notas em formato CSV -->
+      <button id="export-notes">
+        Exportar CSV 
+        <!-- Ícone de download -->
+        <i class="bi bi-download"></i>
+      </button>
+    </header>
+
+    <!-- Container para adicionar novas notas -->
+    <div id="add-note-container">
+
+      <!-- Input onde o usuário digita o conteúdo da nota -->
+      <input 
+        type="text" 
+        id="note-content" 
+        placeholder="O que deseja anotar?" 
+      />
+
+      <!-- Botão para adicionar nova nota -->
+      <button class="add-note">
+        <!-- Ícone de "+" -->
+        <i class="bi bi-plus-lg"></i>
+      </button>
+    </div>
+
+    <!-- Container onde as notas serão renderizadas dinamicamente via JavaScript -->
+    <div id="notes-container"></div>
+
+  </body>
+</html>
